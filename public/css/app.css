@@ -16928,6 +16928,8 @@ body {
 }
 
 .simditor-body img {
+  width: auto;
+  height: auto;
   max-width: 100%;
 }
 
@@ -17293,6 +17295,8 @@ body {
 
 .simditor-body img,
 .topic-body img {
+  width: auto;
+  height: auto;
   max-width: 100%;
   box-sizing: border-box;
 }
