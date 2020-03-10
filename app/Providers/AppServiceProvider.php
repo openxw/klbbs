@@ -22,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
             // 是否是站长
             return \Auth::user()->hasRole('Founder');
         });
+        \App\Models\Link::observe(\App\Observers\LinkObserver::class);
     }
 
 
