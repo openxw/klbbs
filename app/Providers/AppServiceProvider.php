@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Http\Resources\Json\Resource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
             return \Auth::user()->hasRole('Founder');
         });
         \App\Models\Link::observe(\App\Observers\LinkObserver::class);
+
+        Resource::withoutWrapping();
     }
 
 
