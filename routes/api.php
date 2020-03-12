@@ -34,5 +34,8 @@ Route::prefix('v1')
                 Route::delete('authorizations/current', 'AuthorizationsController@destroy')
                     ->name('authorizations.destroy');
 
+
+
       });
+
 });

@@ -49,3 +49,7 @@ Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
+
+//微信登录 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx361d4c4a0d79625f&redirect_uri=http://klbbs.test/wx/&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+// http://klbbs.test/?code=081IR39e1FtAsx0fe1ae1Lg49e1IR39p&state=STATE
+Route::get('wx', 'wx@register')->name('wx.register');
