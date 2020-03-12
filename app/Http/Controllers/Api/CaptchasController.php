@@ -6,6 +6,8 @@ use  Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Gregwar\Captcha\CaptchaBuilder;
 use App\Http\Requests\Api\CaptchaRequest;
+use Gregwar\Captcha\PhraseBuilder;
+
 
 class CaptchasController extends Controller
 {
@@ -14,6 +16,8 @@ class CaptchasController extends Controller
         $key = 'captcha-'.Str::random(15);
         $phone = $request->phone;
 
+        $phraseBuilder = new PhraseBuilder(4, '0123456789');    //修改为4位数字验证图片,上面记得use
+        $captchaBuilder = new CaptchaBuilder(null, $phraseBuilder);
         $captcha = $captchaBuilder->build();
         $expiredAt = now()->addMinutes(2);
         \Cache::put($key, ['phone' => $phone, 'code' => $captcha->getPhrase()], $expiredAt);
